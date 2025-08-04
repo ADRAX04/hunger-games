@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUNGER GAMES</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+    
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f2f2f2;
+        }
+    
+        .carrusel {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+          }
+          
+          .grande {
+            display: flex;
+            width: 300%; /* 3 imágenes = 300% */
+            transition: transform 0.5s ease-in-out;
+            height: 100%; /* <-- Asegura altura completa */
+          }
+          
+          .img {
+            width: 100%;
+            flex: 0 0 100%;
+            height: 100%; /* <-- Esto es clave */
+          }
+          
+          .img img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+          }
+      
+          .puntos {
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+            z-index: 10;
+          }
+      
+          .punto {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+      
+          .punto.activo {
+            background-color: orange;
+          }
+        </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        
+    .imgen{
+        font-family: 'Playfair Display', serif; /* Fuente formal elegante */
+        font-size: 3em;
+        color: white;
+        text-align: center;
+
+        background-image: url(../hunger-games/img/the-hunger-games-the-ballad-of-songbirds-snakes-wallpaper-3840x1080_75.jpg);
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 40px;
+        text-align: center;
+    }
+    .fondo_n{
+        background-image: url(../hunger-games/img/wp13214582.jpg);
+        color: black;
+        text-align: center;
+        padding: 40px;
+        border-radius: 10px;
+        font-family: 'Arial', sans-serif;
+    }
+    .nd{
+        background: linear-gradient(to bottom, rgba(255, 115, 0, 0.864) 16%, rgb(251, 247, 120) 36%, rgb(255, 174, 68) 70%, rgba(255, 162, 2, 0.862) 100%);
+        width: 100%;       
+        height: 100%;
+
+    }
+    .dd{
+        background: linear-gradient(to bottom, rgba(221, 195, 2, 0.864) 6%, rgb(164, 123, 1) 36%, rgb(218, 179, 6) 70%, rgba(255, 255, 255, 0.862) 100%);
+        width: 100%;
+        height: 100%;
+    }
+    .jp{
+        background: linear-gradient(to bottom, rgba(221, 195, 2, 0.864) 6%, rgb(164, 123, 1) 36%, rgb(218, 179, 6) 70%, rgba(255, 255, 255, 0.862));
+        height: 100%;
+        width: 100%;
+    }
+    .fondo{background: linear-gradient(to bottom, rgba(221, 195, 2, 0.864) 6%, rgb(164, 123, 1) 36%, rgb(218, 179, 6) 70%, rgba(255, 255, 255, 0.862) 100%);
+        width: 100%;
+        color: black;
+        text-align: center;
+        padding: 40px;
+        border-radius: 10px;
+        font-family: 'Arial', sans-serif;
+    }
+    </style> 
+    <div class="fondo_n">
+        <div class="imgen">
+            <h1 ba>
+            76 <sup>vo</sup> JUEGOS DEL HAMBRE
+            </h1>
+        </div>
+        <div class="fondo">
+        <h2>
+            Bienvenidos tributos, a los 76 <sup>vo</sup> juegos del hambre.<br>
+            Y que la suerte este siempre de su lado 
+        </h2>
+        <h2>        <ul>
+            Las reglas son fáciles:</h2>
+        <h2>        
+
+            <li>
+                Dos tributos por distrito <br> un hombre y una mujer
+            </li>
+            <li>            Solo uno debe ganar
+            </li>
+            <li>Y entretener a los del capitolio</li>
+
+
+        </h2>
+        <div class="carrusel">
+            <div class="grande">
+            <div class="img"><img src="../hunger-games/img/hg.png"></div>
+            <div class="img"><img src="../hunger-games/img/2023-the-hunger-games-the-ballad-of-songbirds-and-snakes-4k-p7.jpg" alt="2"></div>
+            <div class="img"><img src="../hunger-games/img/ran-manolov-hungergames-logo-2022-1x1-gold (1).jpg" alt="3"></div>
+            </div>
+        
+            <div class="puntos">
+            <div class="punto activo"></div>
+            <div class="punto"></div>
+            <div class="punto"></div>
+            </div>
+        </div>
+        
+        <script>
+            const grande = document.querySelector('.grande');
+            const puntos = document.querySelectorAll('.punto');
+        
+            puntos.forEach((cadaPunto, i) => {
+            cadaPunto.addEventListener('click', () => {
+                let operacion = i * -100; // cada slide ocupa el 100%
+                grande.style.transform = `translateX(${operacion}%)`;
+        
+                puntos.forEach(punto => punto.classList.remove('activo'));
+                cadaPunto.classList.add('activo');
+            });
+            });
+        </script>
+        <table class="dd">
+            <tr class="dd">
+                <th>
+                    INFORMACION      
+                </th>
+                <th>
+                    CALIFICACION
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <a href="https://es.wikipedia.org/wiki/Los_juegos_del_hambre" target="_blank"> Wiki</a>
+                </th>
+                <th>
+                    <a href="https://www.imdb.com/es/find/?q=Los%20juegos%20del%20hambre&ref_=tt_nv_srb_sm" target="_blank">iMDb</a>
+                </th>
+            </tr>
+        </table>
+        <br>
+        <table class="dd">
+            <th>
+            <h2>VIDEOS</h2>
+            </th>
+        </table>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_8Ktfs2mBDY?si=m2UVUwHxtNRNTUzD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/sMzrsw3GV_k?si=KUTriS12zER4m8As" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <table class="dd">
+            <th>
+        <h2 <i class="fab fa-text-height fa-2x fa-fw"></i>Lugar</h2></th>
+        </table>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.1228885023465!2d12.489655976484373!3d41.89021416465508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c82e908503c4!2sColiseo%20de%20Roma!5e0!3m2!1ses!2sco!4v1754318859240!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1754318911333!6m8!1m7!1sCAoSHENJQUJJaEFEeWNLekNSd2M1bWZVWkJFQUFQcEg.!2m2!1d41.8902034329921!2d12.49224537230423!3f14.036282021352235!4f-22.525326495948477!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <table class="jp">
+            <tr>
+                <th><a href="https://www.instagram.com" target="_blank"><img src="../hunger-games/img/instagram (3).png" alt=""></a></th>
+                <th><a href="https://www.x.com"><img src="../hunger-games/img/twitter.png" alt=""></a></th>
+                <th><a href="https://www.facebook.com"><img src="../hunger-games/img/facebook.png" alt=""></a></th>
+            </tr>
+        </table>
+        <table align="3">
+            <tr>
+                <th colspan="3">
+                    LENIN ADRIAN MARTINEZ DULCEY
+                </th>
+            </tr>
+        </table>
+    </div>   
+</body>
+
+</html>
